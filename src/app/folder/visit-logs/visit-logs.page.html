@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Visit Logs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="no-visits-div" *ngIf="visits.length==0">
+  <ion-label class="no-visits-label">No visits to show!!!</ion-label>
+</div>
+<ion-content>
+  <ion-list>
+    <ion-item  *ngFor="let visit of visits">
+      <div class="visit-log-item">
+        <ion-label><b>Visitor Name: </b>{{visit.visitorName}}</ion-label><br />
+      <ion-label><b>Visitor Email: </b>{{visit.visitorEmail}}</ion-label><br />
+      <ion-label><b>Visit Type: </b>{{visit.visitType}}</ion-label><br />
+      <ion-label><b>Person To Visit: </b>{{visit.personToVisit}}</ion-label><br />
+      <ion-label><b>Entry Time: </b>{{visit.entryTime}}</ion-label><br />
+      <ion-label><b>Exit Time:</b>{{visit.exitTime}}</ion-label><br />
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

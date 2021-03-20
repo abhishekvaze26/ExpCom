@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Visit Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #visitorForm="ngForm" (ngSubmit)="submitForm(visitorForm)">
+    <div class="visit-form-div">
+    <ion-input required class="text-input" name="visitorName" ngModel #visitorName="ngModel" type="text" placeholder="Visitor's name"></ion-input><br>
+    <ion-input required class="text-input" name="visitorEmail" ngModel #visitorEmail="ngModel" [email]="true" type="email" placeholder="Visitor's Email"></ion-input><br>
+    <ion-list required class="radio-group">
+      <ion-radio-group name="visitType" ngModel #visitType="ngModel" name="visitType" value="tesla">
+        <ion-item>
+          <ion-label>Meeting</ion-label>
+          <ion-radio value="meeting"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Delivery</ion-label>
+          <ion-radio value="delivery"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Personal</ion-label>
+          <ion-radio value="personal"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list><br>
+    <ion-input required class="text-input" name="personToVisit" ngModel #personToVisit="ngModel" type="text" placeholder="Name of person to visit"></ion-input><br>
+    <ion-label required class="date-label">Visit Date : {{currentDate}}</ion-label><br>
+    <ion-item class="time-item">
+      <ion-label>Entry Time</ion-label>
+      <ion-datetime required name="entryTime" ngModel #entryTime="ngModel" display-format="HH:mm"></ion-datetime>
+    </ion-item><br>
+    <ion-item class="time-item">
+      <ion-label>Exit Time</ion-label>
+      <ion-datetime required name="exitTime" ngModel #exitTime="ngModel" display-format="HH:mm"></ion-datetime>
+    </ion-item><br>
+    <button class="submit-button" [disabled]="!visitorForm.valid">Submit Form</button>
+  </div>
+  </form>
+</ion-content>
