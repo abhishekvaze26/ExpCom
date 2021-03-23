@@ -8,5 +8,18 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item *ngFor="let news of listOfNews">
+      <ion-card>
+        <ion-img [src]="news.urlToImage"></ion-img>
+        <ion-card-header>
+          <ion-card-subtitle>{{news.author}}</ion-card-subtitle>
+          <ion-card-title>{{news.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{news.content}}
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>
